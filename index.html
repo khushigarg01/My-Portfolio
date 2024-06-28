@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<ht lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushi Garg Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4c40c71eac.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+    <style>
+        .animation-container {
+          display: inline-block;
+        }
+        .word-animation {
+          animation: slide-in 3.5s ease;
+        }
+        @keyframes slide-in {
+          0% { transform: translateY(0); opacity: 0; }
+    
+          50% { transform: translateY(-100%); opacity: 1; }
+    
+        100%{
+          transform: translateY(0); opacity: 0;
+        }
+        }
+      </style> 
+</head>
+
+    <div id="header">
+        <div class="container">
+            <nav>
+                <!-- <img src="khushi.jpg" alt="Khushi." class="logo"> -->
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text" ng-app="multiTypingApp" ng-controller="MultiTypingController as ctrl"> 
+                <h1>
+                    <span class="animation-container" ng-repeat="word in ctrl.words" ng-if="ctrl.currentIndex === $index">
+                        <span class="word-animation">{{ word }}</span>
+                    </span>
+                </h1>
+                <h1>Hey, I'm <span>Khushi</span> Garg</h1>
+            </div>
+        </div>
+    </div>
+  
+    <script>
+        angular.module('multiTypingApp', ['ngAnimate'])
+            .controller('MultiTypingController', function($scope, $interval) {
+                var vm = this;
+                
+                vm.words = ['Developer', 'Student'];
+                vm.currentIndex = 0;
+                
+                $interval(function() {
+                    vm.currentIndex = (vm.currentIndex + 1) % vm.words.length;
+                }, 3000); // Change word every 3 seconds
+            });
+    </script>
+
+
+
+    <!-------------------------------------------------about-------------------------------------------------------------------------->
+<div id="about">
+    <div class=container>
+        <div class="row">
+            <div class=c1>
+               <img src="khushi.jpg" alt="my image" class="my-img">
+            </div>
+            <div class="c2">
+            <h1 class="subtitle">About me</h1>
+            <p>Hello there! I'm Khushi Garg, currently pursuing my Bachelor of Technology in Computer Science and Engineering (CSE) 
+                at JSS Academy of Technical Education Noida (JSSATEN).
+                Technology has always intrigued me, and I've found myself delving deep into the world of computers,
+                 algorithms, and programming languages. My journey into the realm of CSE has been nothing short of 
+                 exhilarating, filled with challenges that have only fueled my passion for innovation and problem-solving.
+                When I'm not immersed in lines of code or debugging software, you can find me exploring the great outdoors, 
+                capturing moments through my camera lens, or indulging in a good book.
+                I'm excited to see where this journey takes me and eager to make a meaningful contribution to the ever-evolving 
+                field of Computer Science and Engineering. Join me as I embark on this exhilarating adventure!</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience </p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li> <span>C++</span></li>
+                        <li> <span>Web Development</span><br>Website Designer</li>
+                        <li> <span>Photography</span><br>Event Photography</li>
+
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li> <span></span><br> No Experience Yet</li>
+                       
+                        
+
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li> <span>2024-Current</span><br> Persuing Btech Computer Science at JSS</li>
+                        <li> <span>2022</span><br>Higher Secondary Education  from SOPS Gangoh</li>
+                        <li> <span>2020</span><br>Secondary Education from SOPS Gangoh</li>
+                        
+
+                    </ul>
+                </div>
+            </div>
+            </div>
+
+</div>
+<!--------------------services-------------------->
+<div id="services">
+    <div class="container">
+        <h1 class="subtitle"> My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-laptop-code"></i>
+                <h2>Web Design</h2>
+                <p>
+                    "I create eye-catching websites that are easy to use. 
+                    I know how to make them look good and work well on any device. 
+                    I use tools like HTML and CSS, 
+                    and I keep up with the latest trends in design to make sure my work is top-notch."
+                </p>
+                <a href="#"> Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-clapperboard"></i>
+                <h2>Photography</h2>
+                <p>
+                    "I love taking pictures! From beautiful landscapes to candid portraits, 
+                    I capture moments that tell stories. 
+                    I bring my passion for technology from my computer science
+                     background into my photography, blending creativity with technical skill. 
+                     My goal is to capture the beauty and emotion of life through my lens."
+                </p>
+                <a href="#"> Learn more</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-------------portfolio-------------------------->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="subtitle">My Work</h1>
+        <div class="work-list">
+          <div class="work">
+            <img src="https://static.javatpoint.com/python/images/fashion-recommendation-project-using-python.png" alt="work image" >
+            <div class="layer">
+                <h3>Fashion Recommendation System</h3>
+                <p>" Developed an advanced recommendation engine that personalizes fashion item suggestions for users based on their preferences and behavior. ."</p>
+                <a href="https://github.com/Khushigarg01/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+            
+          </div>
+          <div class="work">
+            <img src="https://www.apartmentguide.com/blog/wp-content/uploads/2019/10/fitness-center-hero_1.jpg" alt="work image" >
+            <div class="layer">
+                <h3>Fitness Centre</h3>
+                <p>"Designed and developed a comprehensive digital platform for a fitness center, aimed at enhancing member experience and operational efficiency. ."</p>
+                <a href="https://github.com/Harshsaini8863/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+
+<!----------------------- contact-------------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subtitle">Contact me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> khushigarg1120@gmail.com</p>
+                
+                <p><i class="fa-solid fa-phone"></i> 7217519889</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/_khushiigarg_/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://l.instagram.com/?u=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fharsh-saini-9180a816a&e=AT1GX8I_XDIvT9buzpxXcvkipFlLUUH29UQkRw-tx6GvKTTappcd6R1z9ioexkFNFkv313F7r-CU47RcjTkLyt2qZ-tr_SWafIKfpA"  target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/Khushigarg01/" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+                <div class="contact-right">
+            <form name="submit-to-google-sheet">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="text" name="email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Messaage"></textarea>
+                 <button type="submit" class="btn btn2">Submit</button>   
+                </div>
+            </form>
+            <span id="msg"></span>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>
+            Copyright <i class="fa-regular fa-copyright"></i> Khushi
+        </p>
+    </div>
+</div>
+</body>
+</html>
